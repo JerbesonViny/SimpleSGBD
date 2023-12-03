@@ -12,7 +12,7 @@ void set_primitive_type(int option, char *column_type)
 {
   if (option == 1)
   {
-    strcpy(column_type, "Char *");
+    strcpy(column_type, "String");
   }
   else if (option == 2)
   {

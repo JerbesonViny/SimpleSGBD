@@ -1,5 +1,7 @@
-build:
+build: create-output-dir 
 	gcc ./main.c ./constants.h \
+	\
+	./helpers/helpers.c \
 	\
 	./modules/tables/services/display_features/display_features.c \
 	./modules/tables/services/check_table_existance/check_table_existance.c \
@@ -13,6 +15,9 @@ build:
 	./modules/tables/usecases/list_tables/list_tables.c \
 	\
 	-o output/main.c
+
+create-output-dir:
+	if [ ! -d output ]; then mkdir output; fi
 
 run: 
 	./output/main.c
