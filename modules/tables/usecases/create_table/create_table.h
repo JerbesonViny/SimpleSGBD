@@ -1,5 +1,5 @@
-#ifndef GERENCIAR_TABELA_H
-#define GERENCIAR_TABELA_H
+#ifndef CREATE_TABLE_USE_CASE_H
+#define CREATE_TABLE_USE_CASE_H
 
 #include "../../controllers/create_table/create_table.h"
 

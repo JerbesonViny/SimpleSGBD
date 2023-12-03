@@ -7,8 +7,10 @@ build:
 	./modules/tables/services/table_service.h \
 	\
 	./modules/tables/controllers/create_table/create_table.c \
+	./modules/tables/controllers/list_tables/list_tables.c \
 	\
 	./modules/tables/usecases/create_table/create_table.c \
+	./modules/tables/usecases/list_tables/list_tables.c \
 	\
 	-o output/main.c
 
