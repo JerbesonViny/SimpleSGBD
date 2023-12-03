@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include "constants.h"
 #include "modules/tables/services/table_service.h"
@@ -7,6 +8,7 @@
 
 void process_option(int option)
 {
+	system("clear");
 	if (option == 1)
 	{
 		process_create_table();
@@ -20,10 +22,11 @@ void process_option(int option)
 int main(void)
 {
 	int option = -1;
-	display_features();
 
 	while (option != 0)
 	{
+		display_features();
+		printf("Escolha uma das opcoes disponiveis: ");
 		scanf("%d", &option);
 		process_option(option);
 		getchar();
