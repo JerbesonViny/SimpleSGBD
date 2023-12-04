@@ -5,6 +5,7 @@
 #include "modules/tables/services/table_service.h"
 #include "modules/tables/controllers/create_table/create_table.h"
 #include "modules/tables/controllers/list_tables/list_tables.h"
+#include "modules/tables/controllers/insert_data_on_table/insert_data_on_table.h"
 
 void process_option(int option)
 {
@@ -13,15 +14,24 @@ void process_option(int option)
 	{
 		process_create_table();
 	}
-	else if (option = 2)
+	else if (option == 2)
 	{
 		process_list_tables();
+	}
+	else if (option == 3)
+	{
+		process_insert_data_on_table();
+	}
+	else
+	{
+		printf("Opcao invalida! Tente novamente\n");
 	}
 }
 
 int main(void)
 {
 	int option = -1;
+	system("clear");
 
 	while (option != 0)
 	{

@@ -40,8 +40,6 @@ void create_table_structure_file(Table *table)
     file = fopen(path, "a+");
   }
 
-  fprintf(file, "%d\n", table->columns_quantity);
-
   for (int column_index = 0; column_index < table->columns_quantity; column_index++)
   {
 

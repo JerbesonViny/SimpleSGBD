@@ -23,3 +23,8 @@ char *create_file_path(char *filename, char *extra_path)
 
   return path;
 }
+
+FILE *read_file(char *file_path)
+{
+  return fopen(file_path, "r");
+}

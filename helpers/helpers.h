@@ -3,5 +3,6 @@
 
 int get_length_of_concatenated_text(char *first_text, char *second_text);
 char *create_file_path(char *filename, char *extra_path);
+FILE *read_file(char *file_path);
 
 #endif
