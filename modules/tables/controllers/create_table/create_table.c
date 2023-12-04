@@ -7,6 +7,7 @@
 #include "../../services/display_primitive_types/display_primitive_types.h"
 #include "../../usecases/create_table/create_table.h"
 #include "../../../../constants.h"
+#include "../../../../helpers/helpers.h"
 
 void set_primitive_type(int option, char *column_type)
 {
@@ -22,11 +23,6 @@ void set_primitive_type(int option, char *column_type)
   {
     strcpy(column_type, "Float");
   }
-}
-
-void display_boolean_options()
-{
-  printf("0 - Não\n1 - Sim\n");
 }
 
 void process_create_table()

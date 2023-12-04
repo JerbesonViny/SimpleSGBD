@@ -9,7 +9,7 @@ O projeto consiste em um SGBD (Sistema de gerenciamento de banco de dados) simpl
 - [x] Criar uma tabela
 - [x] Listar todas as tabelas
 - [x] Criar um novo registro na tabela
-- [ ] Listar todos os dados de uma tabela
+- [x] Listar todos os dados de uma tabela
 - [ ] Pesquisar valor em uma tabela
 - [ ] Apagar um registro da tabela
 - [ ] Apagar uma tabela

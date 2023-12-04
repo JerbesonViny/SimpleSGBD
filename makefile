@@ -11,10 +11,12 @@ build: create-output-dir
 	./modules/tables/controllers/create_table/create_table.c \
 	./modules/tables/controllers/list_tables/list_tables.c \
 	./modules/tables/controllers/insert_data_on_table/insert_data_on_table.c \
+	./modules/tables/controllers/list_data_of_table/list_data_of_table.c \
 	\
 	./modules/tables/usecases/create_table/create_table.c \
 	./modules/tables/usecases/list_tables/list_tables.c \
 	./modules/tables/usecases/insert_data_on_table/insert_data_on_table.c \
+	./modules/tables/usecases/list_data_of_table/list_data_of_table.c \
 	\
 	-o output/main.c
 

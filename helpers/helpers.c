@@ -24,6 +24,11 @@ char *create_file_path(char *filename, char *extra_path)
   return path;
 }
 
+void display_boolean_options()
+{
+  printf("0 - Não\n1 - Sim\n");
+}
+
 FILE *read_file(char *file_path)
 {
   return fopen(file_path, "r");
