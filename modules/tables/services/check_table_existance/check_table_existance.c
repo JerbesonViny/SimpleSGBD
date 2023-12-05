@@ -8,7 +8,7 @@ int check_table_existance(char table_name[50])
   FILE *file;
   char line[100];
 
-  file = fopen(TABLE_PATH, "r");
+  file = fopen(TABLE_NAMES_FILE_PATH, "r");
 
   while (fscanf(file, "%s", line) != EOF)
   {

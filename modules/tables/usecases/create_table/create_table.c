@@ -12,13 +12,13 @@ void create_table_on_table_names_file(char table_name[50])
 {
   FILE *file;
 
-  if (access(TABLE_PATH, F_OK) != -1)
+  if (access(TABLE_NAMES_FILE_PATH, F_OK) != -1)
   {
-    file = fopen(TABLE_PATH, "a");
+    file = fopen(TABLE_NAMES_FILE_PATH, "a");
   }
   else
   {
-    file = fopen(TABLE_PATH, "a+");
+    file = fopen(TABLE_NAMES_FILE_PATH, "a+");
   }
 
   fprintf(file, "%s\n", table_name);

@@ -7,6 +7,7 @@
 #include "modules/tables/controllers/list_tables/list_tables.h"
 #include "modules/tables/controllers/insert_data_on_table/insert_data_on_table.h"
 #include "modules/tables/controllers/list_data_of_table/list_data_of_table.h"
+#include "modules/tables/controllers/delete_table/delete_table.h"
 
 void process_option(int option)
 {
@@ -26,6 +27,16 @@ void process_option(int option)
 	else if (option == 4)
 	{
 		process_list_data_of_table();
+	}
+	else if (option == 7)
+	{
+		process_delete_table();
+	}
+	else if (option == 0)
+	{
+		system("clear");
+		printf("\xE2\x9C\x85 Sistema encerrado com sucesso!\n");
+		exit(0);
 	}
 	else
 	{

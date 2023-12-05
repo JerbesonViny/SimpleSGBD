@@ -60,3 +60,30 @@ int *search_text_in_file(char *file_path, char *text, int *length_of_indexes_arr
 
   return indexes_of_lines;
 }
+
+int includes_in_int_array(int integers_quantity, int *integers, int integer)
+{
+  for (int index = 0; index < integers_quantity; index++)
+  {
+    if (integers[index] == integer)
+      return 1;
+  }
+
+  return 0;
+}
+
+int delete_file(char *file_path)
+{
+  if (remove(file_path) == 0)
+    return 1;
+
+  return 0;
+}
+
+int rename_file(char *file_path, char *file_name)
+{
+  if (rename(file_path, file_name) == 0)
+    return 1;
+
+  return 0;
+}
