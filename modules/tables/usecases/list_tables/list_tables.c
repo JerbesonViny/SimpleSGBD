@@ -4,7 +4,7 @@
 
 FILE *load_tables()
 {
-  return fopen(TABLE_PATH, "r");
+  return fopen(TABLE_NAMES_FILE_PATH, "r");
 }
 
 void list_tables()
