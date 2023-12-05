@@ -50,3 +50,29 @@ Para o caso da chave primária, o próprio sistema vai criar uma coluna chamada 
 ### Apagar uma tabela
 
 - [ ] O usuário deverá fornecer o nome da tabela a ser apagada
+
+## Como rodar o projeto?
+
+<p style="text-align: justify;">
+Foram criados dois comandos que podem ser executados separadamente ou juntos. O primeiro é chamado de "build", e é responsável por compilar todos os arquivos necessários para garantir o funcionamento correto do programa:
+<p>
+
+```bash
+>>> make build
+```
+
+<p style="text-align: justify;">
+O segundo comando, denominado "run", como o próprio nome sugere, executa o programa:
+<p>
+
+```bash
+>>> make run
+```
+
+<p style="text-align: justify;">
+Por fim, se desejar compilar e executar o programa em sequência, combine-os:
+<p>
+
+```bash
+>>> make build run
+```
