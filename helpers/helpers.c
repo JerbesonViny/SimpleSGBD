@@ -33,3 +33,30 @@ FILE *read_file(char *file_path)
 {
   return fopen(file_path, "r");
 }
+
+int *search_text_in_file(char *file_path, char *text, int *length_of_indexes_array)
+{
+  FILE *file = read_file(file_path);
+
+  char line[1024];
+  int founded_lines_quantity = 0;
+  int *indexes_of_lines = malloc(founded_lines_quantity * sizeof(int));
+
+  int line_index = 0;
+  while (fscanf(file, "%s", line) != EOF)
+  {
+    if (strcmp(line, text) == 0)
+    {
+      founded_lines_quantity++;
+      indexes_of_lines = (int *)realloc(indexes_of_lines, founded_lines_quantity * sizeof(int));
+
+      indexes_of_lines[founded_lines_quantity - 1] = line_index;
+    }
+
+    line_index++;
+  }
+
+  *length_of_indexes_array = founded_lines_quantity;
+
+  return indexes_of_lines;
+}
