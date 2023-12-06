@@ -52,9 +52,9 @@ void process_delete_table()
 
   if (can_delete_table)
   {
-    int table_are_deleted = delete_table(table_name);
+    int table_is_deleted = delete_table(table_name);
 
     system("clear");
-    display_table_removal_status(table_are_deleted);
+    display_table_removal_status(table_is_deleted);
   }
 }

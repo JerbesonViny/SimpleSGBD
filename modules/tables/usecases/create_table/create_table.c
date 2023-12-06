@@ -47,6 +47,7 @@ void create_table_structure_file(Table *table)
   }
 
   fclose(file);
+  free(path);
 }
 
 void create_table_data_file(Table *table)
@@ -77,10 +78,7 @@ void create_table_data_file(Table *table)
   }
 
   fclose(file);
-}
-
-void create_table_files(Table *table)
-{
+  free(path);
 }
 
 void create_table(Table *table)

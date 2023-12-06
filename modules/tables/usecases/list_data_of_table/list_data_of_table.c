@@ -28,4 +28,6 @@ void list_data_of_table(char table_name[50])
 
     printf("\n");
   }
+
+  fclose(file);
 };
