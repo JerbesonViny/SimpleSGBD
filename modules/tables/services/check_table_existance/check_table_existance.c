@@ -5,18 +5,20 @@
 
 int check_table_existance(char table_name[50])
 {
-  FILE *file;
+  FILE *file = fopen(TABLE_NAMES_FILE_PATH, "r");
   char line[100];
-
-  file = fopen(TABLE_NAMES_FILE_PATH, "r");
+  int table_exists = 0;
 
   while (fscanf(file, "%s", line) != EOF)
   {
     if (strcmp(line, table_name) == 0)
     {
-      return 1;
+      table_exists = 1;
+      break;
     }
   }
 
-  return 0;
+  fclose(file);
+
+  return table_exists;
 }

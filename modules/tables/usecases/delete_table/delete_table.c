@@ -9,15 +9,21 @@
 int delete_structure_file(char table_name[50])
 {
   char *structure_path = create_file_path(table_name, TABLE_STRUCTURE_PATH);
+  int file_is_removed = delete_file(structure_path);
 
-  return delete_file(structure_path);
+  free(structure_path);
+
+  return file_is_removed;
 }
 
 int delete_data_file(char table_name[50])
 {
   char *data_path = create_file_path(table_name, TABLE_DATA_PATH);
+  int file_is_removed = delete_file(data_path);
 
-  return delete_file(data_path);
+  free(data_path);
+
+  return file_is_removed;
 }
 
 int remove_table_of_table_names_file(char table_name[50])
@@ -45,6 +51,9 @@ int remove_table_of_table_names_file(char table_name[50])
 
   int temp_file_are_deleted = delete_file(TABLE_NAMES_FILE_PATH);
   int table_names_file_are_deleted = rename_file(temp_table_names_file_path, TABLE_NAMES_FILE_PATH);
+
+  free(indexes);
+  free(temp_table_names_file_path);
 
   if (temp_file_are_deleted && table_names_file_are_deleted)
     return 1;
