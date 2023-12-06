@@ -90,7 +90,6 @@ void process_create_table()
       }
     }
 
-    // chamar o caso de uso
     create_table(&table);
   }
 }

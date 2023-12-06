@@ -25,4 +25,5 @@ void insert_data_on_table(int quantity_of_values, char **values, char table_name
   }
 
   fclose(file);
+  free(data_path);
 }

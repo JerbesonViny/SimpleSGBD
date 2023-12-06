@@ -79,6 +79,7 @@ void process_insert_data_on_table()
   insert_data_on_table(quantity_of_values, values, table_name);
   fclose(file);
 
+  free(structure_path);
   for (int index = 0; index < quantity_of_values; index++)
   {
     free(values[index]);

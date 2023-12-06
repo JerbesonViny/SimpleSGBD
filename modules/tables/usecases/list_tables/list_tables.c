@@ -19,4 +19,6 @@ void list_tables()
     printf("%d - %s\n", columns_quantity, line);
     columns_quantity++;
   }
+
+  fclose(file);
 }
