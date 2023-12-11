@@ -49,7 +49,7 @@ Para o caso da chave primária, o próprio sistema vai criar uma coluna chamada 
 
 ### Apagar uma tabela
 
-- [ ] O usuário deverá fornecer o nome da tabela a ser apagada
+- [x] O usuário deverá fornecer o nome da tabela a ser apagada
 
 ## Como rodar o projeto?
 
