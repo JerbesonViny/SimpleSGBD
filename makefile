@@ -1,4 +1,4 @@
-build: create-output-dir 
+build: create-dependence-dirs
 	gcc ./main.c ./constants.h \
 	\
 	./helpers/helpers.c \
@@ -22,8 +22,12 @@ build: create-output-dir
 	\
 	-o output/main.c
 
-create-output-dir:
-	if [ ! -d output ]; then mkdir output; fi
+create-dependence-dirs:
+	if [ ! -d output ]; then mkdir output; fi \
+	&& if [ ! -d tables ]; then mkdir tables; fi \
+	&& if [ ! -d tables/data ]; then mkdir tables/data; fi \
+	&& if [ ! -d tables/structure ]; then mkdir tables/structure; fi \
+	&& if [ ! -d tables/table_names.txt ]; then touch tables/table_names.txt; fi
 
 run: 
 	./output/main.c

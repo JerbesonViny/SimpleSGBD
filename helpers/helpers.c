@@ -3,6 +3,7 @@
 #include <stdio.h>
 
 #include "helpers.h"
+#include "../modules/tables/services/table_service.h"
 
 int get_length_of_concatenated_text(char *first_text, char *second_text)
 {
@@ -86,4 +87,36 @@ int rename_file(char *file_path, char *file_name)
     return 1;
 
   return 0;
+}
+
+int handle_table_name_input(char *table_name)
+{
+  int keep_receiving_table_names = 1;
+
+  while (keep_receiving_table_names)
+  {
+    printf("Informe o nome da tabela: ");
+    scanf("%s", table_name);
+    int founded_table = check_table_existance(table_name);
+
+    if (!founded_table)
+    {
+      printf("Tabela nao encontrada!\n");
+      display_boolean_options();
+
+      printf("Deseja tentar novamente? ");
+
+      int option;
+      scanf("%d", &option);
+
+      if (option == 0)
+      {
+        keep_receiving_table_names = 0;
+      }
+    }
+    else
+    {
+      keep_receiving_table_names = 0;
+    }
+  }
 }

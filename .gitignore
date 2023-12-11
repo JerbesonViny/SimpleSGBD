@@ -1,3 +1,5 @@
 .vscode
-tables/*
-output/*
+tables/structure/*
+tables/data/*
+tables/table_names.txt
+output/

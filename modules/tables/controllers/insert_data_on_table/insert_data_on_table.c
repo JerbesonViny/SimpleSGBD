@@ -16,22 +16,10 @@ void process_insert_data_on_table()
   char *values[500];
   int quantity_of_values = 0;
 
-  int keep_receiving_table_names = 1;
-  while (keep_receiving_table_names)
-  {
-    printf("Informe o nome da tabela: ");
-    scanf("%s", table_name);
-    int founded_table = check_table_existance(table_name);
+  int can_insert_data = handle_table_name_input(table_name);
 
-    if (!founded_table)
-    {
-      printf("Tabela nao encontrada! Tente novamente!\n");
-    }
-    else
-    {
-      keep_receiving_table_names = 0;
-    }
-  }
+  if (!can_insert_data)
+    return;
 
   char *structure_path = create_file_path(table_name, TABLE_STRUCTURE_PATH);
   FILE *file = read_file(structure_path);
