@@ -7,11 +7,12 @@
 #include "../../../../helpers/helpers.h"
 #include "../../../../constants.h"
 
-void insert_data_on_table(int quantity_of_values, char **values, char table_name[50])
+void insert_data_on_table(int quantity_of_values, char **values, char table_name[50], int identifier)
 {
   char *data_path = create_file_path(table_name, TABLE_DATA_PATH);
   FILE *file = fopen(data_path, "a");
 
+  fprintf(file, "%d;", identifier);
   for (int index = 0; index < quantity_of_values; index++)
   {
     if (index != quantity_of_values - 1)

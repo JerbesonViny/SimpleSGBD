@@ -1,4 +1,4 @@
-build: create-output-dir 
+build: create-dependence-dirs
 	gcc ./main.c ./constants.h \
 	\
 	./helpers/helpers.c \
@@ -13,17 +13,24 @@ build: create-output-dir
 	./modules/tables/controllers/insert_data_on_table/insert_data_on_table.c \
 	./modules/tables/controllers/list_data_of_table/list_data_of_table.c \
 	./modules/tables/controllers/delete_table/delete_table.c \
+	./modules/tables/controllers/delete_data_of_table/delete_data_of_table.c \
 	\
 	./modules/tables/usecases/create_table/create_table.c \
 	./modules/tables/usecases/list_tables/list_tables.c \
 	./modules/tables/usecases/insert_data_on_table/insert_data_on_table.c \
 	./modules/tables/usecases/list_data_of_table/list_data_of_table.c \
 	./modules/tables/usecases/delete_table/delete_table.c \
+	./modules/tables/usecases/delete_data_of_table/delete_data_of_table.c \
 	\
 	-o output/main.c
 
-create-output-dir:
-	if [ ! -d output ]; then mkdir output; fi
+create-dependence-dirs:
+	if [ ! -d output ]; then mkdir output; fi \
+	&& if [ ! -d tables ]; then mkdir tables; fi \
+	&& if [ ! -d tables/data ]; then mkdir tables/data; fi \
+	&& if [ ! -d tables/structure ]; then mkdir tables/structure; fi \
+	&& if [ ! -d tables/identifier ]; then mkdir tables/identifier; fi \
+	&& if [ ! -d tables/table_names.txt ]; then touch tables/table_names.txt; fi
 
 run: 
 	./output/main.c

@@ -26,6 +26,16 @@ int delete_data_file(char table_name[50])
   return file_is_removed;
 }
 
+int delete_identifier_file(char table_name[50])
+{
+  char *data_path = create_file_path(table_name, TABLE_IDENTIFIER_PATH);
+  int file_is_removed = delete_file(data_path);
+
+  free(data_path);
+
+  return file_is_removed;
+}
+
 int remove_table_of_table_names_file(char table_name[50])
 {
   int indexes_quantity = 0;
@@ -49,13 +59,13 @@ int remove_table_of_table_names_file(char table_name[50])
   fclose(temp_file);
   fclose(table_names_file);
 
-  int temp_file_are_deleted = delete_file(TABLE_NAMES_FILE_PATH);
-  int table_names_file_are_deleted = rename_file(temp_table_names_file_path, TABLE_NAMES_FILE_PATH);
+  int temp_file_is_deleted = delete_file(TABLE_NAMES_FILE_PATH);
+  int table_names_file_is_deleted = rename_file(temp_table_names_file_path, TABLE_NAMES_FILE_PATH);
 
   free(indexes);
   free(temp_table_names_file_path);
 
-  if (temp_file_are_deleted && table_names_file_are_deleted)
+  if (temp_file_is_deleted && table_names_file_is_deleted)
     return 1;
 
   return 0;
@@ -63,11 +73,12 @@ int remove_table_of_table_names_file(char table_name[50])
 
 int delete_table(char table_name[50])
 {
-  int structure_file_are_deleted = delete_structure_file(table_name);
-  int data_file_are_deleted = delete_data_file(table_name);
+  int structure_file_is_deleted = delete_structure_file(table_name);
+  int data_file_is_deleted = delete_data_file(table_name);
+  int identifier_file_is_deleted = delete_identifier_file(table_name);
   int table_has_removed_to_table_names_file = remove_table_of_table_names_file(table_name);
 
-  if (structure_file_are_deleted && data_file_are_deleted && table_has_removed_to_table_names_file)
+  if (structure_file_is_deleted && data_file_is_deleted && identifier_file_is_deleted && table_has_removed_to_table_names_file)
     return 1;
 
   return 0;

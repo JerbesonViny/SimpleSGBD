@@ -7,37 +7,9 @@
 void process_list_data_of_table()
 {
   char table_name[50];
-  int display_data_of_table = 1;
 
-  int keep_receiving_table_names = 1;
-  while (keep_receiving_table_names)
-  {
-    printf("Informe o nome da tabela: ");
-    scanf("%s", table_name);
-    int founded_table = check_table_existance(table_name);
+  int can_display_data_of_tables = handle_table_name_input(table_name);
 
-    if (!founded_table)
-    {
-      printf("Tabela nao encontrada!\n");
-      display_boolean_options();
-
-      printf("Deseja tentar novamente? ");
-
-      int option;
-      scanf("%d", &option);
-
-      if (option == 0)
-      {
-        keep_receiving_table_names = 0;
-        display_data_of_table = 0;
-      }
-    }
-    else
-    {
-      keep_receiving_table_names = 0;
-    }
-  }
-
-  if (display_data_of_table)
+  if (can_display_data_of_tables)
     list_data_of_table(table_name);
 }
