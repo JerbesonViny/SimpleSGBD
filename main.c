@@ -8,6 +8,7 @@
 #include "modules/tables/controllers/insert_data_on_table/insert_data_on_table.h"
 #include "modules/tables/controllers/list_data_of_table/list_data_of_table.h"
 #include "modules/tables/controllers/delete_table/delete_table.h"
+#include "modules/tables/controllers/delete_data_of_table/delete_data_of_table.h"
 
 void process_option(int option)
 {
@@ -27,6 +28,10 @@ void process_option(int option)
 	else if (option == 4)
 	{
 		process_list_data_of_table();
+	}
+	else if (option == 6)
+	{
+		process_delete_data_of_table();
 	}
 	else if (option == 7)
 	{
