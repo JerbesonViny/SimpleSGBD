@@ -13,5 +13,6 @@ int delete_file(char *file_path);
 int rename_file(char *file_path, char *file_name);
 int handle_table_name_input(char *table_name);
 void update_identifier(char table_name[50], int identifier);
+int *search_identifier_in_data_file(char *file_path, char *text, int *length_of_indexes_array);
 
 #endif

@@ -63,6 +63,35 @@ int *search_text_in_file(char *file_path, char *text, int *length_of_indexes_arr
   return indexes_of_lines;
 }
 
+int *search_identifier_in_data_file(char *file_path, char *text, int *length_of_indexes_array)
+{
+  FILE *file = read_file(file_path);
+
+  char line[1024];
+  int founded_lines_quantity = 0;
+  int *indexes_of_lines = malloc(founded_lines_quantity * sizeof(int));
+
+  int line_index = 0;
+  while (fscanf(file, "%s", line) != EOF)
+  {
+    char *identifier = strtok(line, ";");
+
+    if (strcmp(identifier, text) == 0)
+    {
+      founded_lines_quantity++;
+      indexes_of_lines = (int *)realloc(indexes_of_lines, founded_lines_quantity * sizeof(int));
+
+      indexes_of_lines[founded_lines_quantity - 1] = line_index;
+    }
+
+    line_index++;
+  }
+
+  *length_of_indexes_array = founded_lines_quantity;
+
+  return indexes_of_lines;
+}
+
 int includes_in_int_array(int integers_quantity, int *integers, int integer)
 {
   for (int index = 0; index < integers_quantity; index++)

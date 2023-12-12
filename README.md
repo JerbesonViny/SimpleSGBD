@@ -11,8 +11,8 @@ O projeto consiste em um SGBD (Sistema de gerenciamento de banco de dados) simpl
 - [x] O usuário deve informar o nome da tabela;
 - [x] Os tipos de dados para as colunas poderão ser os tipos primitivos em C ( char, int, float e double) e strings;
 - [x] Os valores deverão ser armazenados em arquivo;
-- [ ] A criação da tabela deverá ser solicitado um nome de coluna para ser a chave primária
-- [ ] A chave primária deverá ser obrigatoriamente do tipo inteiro sem sinal
+- [x] A criação da tabela deverá ser solicitado um nome de coluna para ser a chave primária
+- [x] A chave primária deverá ser obrigatoriamente do tipo inteiro sem sinal
 
 ### Listar todas as tabelas
 
@@ -45,7 +45,7 @@ Para o caso da chave primária, o próprio sistema vai criar uma coluna chamada 
 
 ### Apagar um registro da tabela
 
-- [ ] O usuário deve informar o nome da tabela e a chave primária da tupla a ser apagada
+- [x] O usuário deve informar o nome da tabela e a chave primária da tupla a ser apagada
 
 ### Apagar uma tabela
 

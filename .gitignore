@@ -1,5 +1,6 @@
 .vscode
 tables/structure/*
 tables/data/*
+tables/identifier/*
 tables/table_names.txt
 output/
