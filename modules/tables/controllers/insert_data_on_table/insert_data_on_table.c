@@ -21,11 +21,14 @@ void process_insert_data_on_table()
   if (!can_insert_data)
     return;
 
-  char *structure_path = create_file_path(table_name, TABLE_STRUCTURE_PATH);
-  FILE *file = read_file(structure_path);
+  char *structure_file_path = create_file_path(table_name, TABLE_STRUCTURE_PATH);
+  FILE *structure_file = read_file(structure_file_path);
 
-  while (fscanf(file, "%s %s", column, column_type) != EOF)
+  while (fscanf(structure_file, "%s %s", column, column_type) != EOF)
   {
+    if (strcmp(column, "id") == 0)
+      continue;
+
     printf("Insira um valor para o campo %s (%s): ", column, column_type);
 
     if (strcmp(column_type, "String") == 0)
@@ -64,10 +67,21 @@ void process_insert_data_on_table()
     }
   }
 
-  insert_data_on_table(quantity_of_values, values, table_name);
-  fclose(file);
+  char *identifier_file_path = create_file_path(table_name, TABLE_IDENTIFIER_PATH);
+  FILE *identifier_file = read_file(identifier_file_path);
 
-  free(structure_path);
+  char last_identifier_string[50];
+  fscanf(identifier_file, "%s", last_identifier_string);
+  int identifier = atoi(last_identifier_string) + 1;
+
+  insert_data_on_table(quantity_of_values, values, table_name, identifier);
+  update_identifier(table_name, identifier);
+
+  fclose(structure_file);
+  fclose(identifier_file);
+
+  free(structure_file_path);
+  free(identifier_file_path);
   for (int index = 0; index < quantity_of_values; index++)
   {
     free(values[index]);

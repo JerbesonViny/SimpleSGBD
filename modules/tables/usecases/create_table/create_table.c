@@ -40,9 +40,9 @@ void create_table_structure_file(Table *table)
     file = fopen(path, "a+");
   }
 
+  fprintf(file, "id Int\n");
   for (int column_index = 0; column_index < table->columns_quantity; column_index++)
   {
-
     fprintf(file, "%s\n", table->columns[column_index]);
   }
 
@@ -64,6 +64,7 @@ void create_table_data_file(Table *table)
     file = fopen(path, "a+");
   }
 
+  fprintf(file, "id;");
   int last_index_of_columns = table->columns_quantity - 1;
   for (int column_index = 0; column_index < table->columns_quantity; column_index++)
   {
@@ -81,10 +82,31 @@ void create_table_data_file(Table *table)
   free(path);
 }
 
+void create_table_identifier_file(Table *table)
+{
+  FILE *file;
+  char *path = create_file_path(table->name, TABLE_IDENTIFIER_PATH);
+
+  if (access(path, F_OK) != -1)
+  {
+    file = fopen(path, "a");
+  }
+  else
+  {
+    file = fopen(path, "a+");
+  }
+
+  fprintf(file, "0");
+
+  fclose(file);
+  free(path);
+}
+
 void create_table(Table *table)
 {
   create_table_on_table_names_file(table->name);
   create_table_structure_file(table);
   create_table_data_file(table);
+  create_table_identifier_file(table);
   printf("Tabela criada com sucesso!\n");
 }

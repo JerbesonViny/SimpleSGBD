@@ -12,5 +12,6 @@ int includes_in_int_array(int integers_quantity, int *integers, int integer);
 int delete_file(char *file_path);
 int rename_file(char *file_path, char *file_name);
 int handle_table_name_input(char *table_name);
+void update_identifier(char table_name[50], int identifier);
 
 #endif

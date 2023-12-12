@@ -27,6 +27,7 @@ create-dependence-dirs:
 	&& if [ ! -d tables ]; then mkdir tables; fi \
 	&& if [ ! -d tables/data ]; then mkdir tables/data; fi \
 	&& if [ ! -d tables/structure ]; then mkdir tables/structure; fi \
+	&& if [ ! -d tables/identifier ]; then mkdir tables/identifier; fi \
 	&& if [ ! -d tables/table_names.txt ]; then touch tables/table_names.txt; fi
 
 run: 

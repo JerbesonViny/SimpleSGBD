@@ -3,6 +3,7 @@
 #include <stdio.h>
 
 #include "helpers.h"
+#include "../constants.h"
 #include "../modules/tables/services/table_service.h"
 
 int get_length_of_concatenated_text(char *first_text, char *second_text)
@@ -119,4 +120,17 @@ int handle_table_name_input(char *table_name)
       keep_receiving_table_names = 0;
     }
   }
+}
+
+void update_identifier(char table_name[50], int identifier)
+{
+  char *file_path = create_file_path(table_name, TABLE_IDENTIFIER_PATH);
+  int identifier_file_is_deleted = delete_file(file_path);
+  FILE *file = fopen(file_path, "a+");
+
+  char identifier_string[50];
+  sprintf(identifier_string, "%d", identifier);
+  fprintf(file, "%s\n", identifier_string);
+
+  fclose(file);
 }
